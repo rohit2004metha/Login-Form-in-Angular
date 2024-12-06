@@ -1,0 +1,71 @@
+<section>
+  <div class="box">
+
+    <div class="square" style="--i:0;"></div>
+    <div class="square" style="--i:1;"></div>
+    <div class="square" style="--i:2;"></div>
+    <div class="square" style="--i:3;"></div>
+    <div class="square" style="--i:4;"></div>
+    <div class="square" style="--i:5;"></div>
+
+    <div class="container">
+      <div class="form">
+        <h2>Login Form</h2>
+
+
+        <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+          <div class="inputBx">
+            <input formControlName="email" type="email" required="required" class="input-text">
+               <p class="alert"
+                  *ngIf="signInForm.get('email')?.touched
+                  && signInForm.get('email')?.invalid">
+                 Email is required
+               </p>
+                   <!--#element (keyup.enter)="setUserName(element.value)">-->
+<!--            <input type="email" required="required" name="userName" id="userName" class="input-text" [(ngModel)]="email">-->
+
+            <span>Login</span>
+            <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
+          </div>
+
+          <div class="inputBx password">
+            <input formControlName="password" id="password-input" type="password" required="required" class="input-text">
+            <p class="alert"
+               *ngIf="signInForm.get('password')?.touched
+                  && signInForm.get('password')?.invalid">
+              Password is required
+            </p>
+<!--            <input id="password-input" type="password" name="password" required="required" class="input-text" [(ngModel)]="password">-->
+
+            <span>Password</span>
+            <a href="#" class="password-control"></a>
+            <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828471.svg" alt="lock">
+          </div>
+
+          <label class="remember"><input type="checkbox">
+            Remember</label>
+          <div class="inputBx">
+            <input type="submit" value="Sign In" class="btn{{signInForm.invalid?'invalid':''}}" id="btn_SignIn">
+          </div>
+
+        </form>
+
+        <!--  One Way Data Binding-->
+<!--        <p> User Name : {{userName}}</p>-->
+
+<!--        <input type="text" value="{{userName}}">-->
+<!--        <input type="text" [value]="userName">-->
+
+        <!--  Two Way Data Binding-->
+
+        <!-- [(ngModel)] == banana in the box-->
+<!--        <input type="text" [(ngModel)]="userName">-->
+<!--        <br>-->
+<!--        {{userName}}-->
+
+<!--        <p>Forgot password? <a href="#">Click Here</a></p>-->
+<!--        <p>Don't have an account <a href="#">Sign up</a></p>-->
+      </div>
+    </div>
+  </div>
+</section>
